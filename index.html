@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./common.css" />
+    <script src="./set_url.js"></script>
+    <title>심볼 진행도 그래프</title>
+    <style>
+    </style>
+</head>
+<body>
+    <div class="content_area">
+        <div class="title">
+            <div class="acat" onclick="acat_change()">아케인</div>
+            <!-- <div class="weekly_box">
+                <div class="weekly_check_title">
+                    이번주 주간퀘
+                    <div class="weekly_check" id="weekly_check_all"><div class="check_leg"></div></div>
+                </div>
+                <div class="weekly_check_box">
+                    <div class="weekly">
+                        <div class="weekly_img"></div>
+                        <div class="weekly_check"><div class="check_leg"></div></div>
+                    </div>
+                    <div class="weekly">
+                        <div class="weekly_img"></div>
+                        <div class="weekly_check"><div class="check_leg"></div></div>
+                    </div>
+                    <div class="weekly">
+                        <div class="weekly_img"></div>
+                        <div class="weekly_check"><div class="check_leg"></div></div>
+                    </div>
+                    <div class="weekly">
+                        <div class="weekly_img"></div>
+                        <div class="weekly_check"><div class="check_leg"></div></div>
+                    </div>
+                    <div class="weekly">
+                        <div class="weekly_img"></div>
+                        <div class="weekly_check"><div class="check_leg"></div></div>
+                    </div>
+                    <div class="weekly">
+                        <div class="weekly_img"></div>
+                        <div class="weekly_check"><div class="check_leg"></div></div>
+                    </div>
+                </div>
+            </div> -->
+            심볼 진행도 그래프
+            <div class="save_date">마지막 저장날짜 20230915</div>
+            <div class="save" onclick="save_page()">저장하기</div>
+        </div>
+        <div class="flex_wrapper wrapper_ac">
+            <div class="symbol_box ac1">
+                <div class="input_area">
+                    <div class="name_box">
+                        <div class="img_box">
+                            <img src="./loading.png" alt="" class="symbol_img">
+                        </div>
+                        <div class="name">여로</div>
+                    </div>
+                    <div class="input_box">
+                        <div class="lv">level</div>
+                        <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="input_lv" onkeyup="print_data_ac(0)">
+                        <div class="exp">exp</div>
+                        <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="input_exp" onkeyup="print_data_ac(0)">
+                    </div>
+                </div>
+                <div class="output_area">
+                    <div class="output_cover">오류</div>
+                    <div class="gp_box">
+                        <div class="gps">
+                            <div class="gp gp_total"></div>
+                            <div class="gp gp_mine"></div>
+                        </div>
+                        <div class="gp_txt_box">
+                            <div class="gp_txt_total"><b>total</b><br>2679</div>
+                            <div class="gp_txt_mine"><b>mine</b><br>1600</div>
+                        </div>
+                    </div>
+                    <div class="disc_box">
+                        <div class="goal">
+                            <b>목표</b>
+                            <select name="" id="">
+                                <option value="" selected>풀강</option>
+                                <option value="">+1</option>
+                                <option value="">+2</option>
+                            </select>
+                        </div>
+                        <table class="disc_table">
+                            <tr>
+                                <td>
+                                    <div class="disc_title">필요 심볼</div>
+                                    <div class="disc_txt">100개</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="disc_title">필요 메소</div>
+                                    <div class="disc_txt">100,000,000</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="disc_title">일퀘만</div>
+                                    <div class="disc_txt">10일(2023.09.24)</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="disc_title">주간퀘까지</div>
+                                    <div class="disc_txt">5일(2023.09.19)</div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="symbol_box ac2">
+                <div class="input_area">
+                    <div class="name_box">
+                        <div class="img_box">
+                            <img src="./loading.png" alt="" class="symbol_img">
+                        </div>
+                        <div class="name">츄츄</div>
+                    </div>
+                    <div class="input_box">
+                        <div class="lv">level</div>
+                        <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="input_lv" onkeyup="print_data_ac(1)">
+                        <div class="exp">exp</div>
+                        <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="input_exp" onkeyup="print_data_ac(1)">
+                    </div>
+                </div>
+                <div class="output_area">
+                    <div class="output_cover">오류</div>
+                    <div class="gp_box">
+                        <div class="gps">
+                            <div class="gp gp_total"></div>
+                            <div class="gp gp_mine"></div>
+                        </div>
+                        <div class="gp_txt_box">
+                            <div class="gp_txt_total"><b>total</b><br>2679</div>
+                            <div class="gp_txt_mine"><b>mine</b><br>1600</div>
+                        </div>
+                    </div>
+                    <div class="disc_box">
+                        <div class="goal">
+                            <b>목표</b>
+                            <select name="" id="">
+                                <option value="" selected>풀강</option>
+                                <option value="">+1</option>
+                                <option value="">+2</option>
+                            </select>
+                        </div>
+                        <table class="disc_table">
+                            <tr>
+                                <td>
+                                    <div class="disc_title">필요 심볼</div>
+                                    <div class="disc_txt">100개</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="disc_title">필요 메소</div>
+                                    <div class="disc_txt">100,000,000</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="disc_title">일퀘만</div>
+                                    <div class="disc_txt">10일(2023.09.24)</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="disc_title">주간퀘까지</div>
+                                    <div class="disc_txt">5일(2023.09.19)</div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="symbol_box ac3">
+                <div class="input_area">
+                    <div class="name_box">
+                        <div class="img_box">
+                            <img src="./loading.png" alt="" class="symbol_img">
+                        </div>
+                        <div class="name">레헬른</div>
+                    </div>
+                    <div class="input_box">
+                        <div class="lv">level</div>
+                        <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="input_lv" onkeyup="print_data_ac(2)">
+                        <div class="exp">exp</div>
+                        <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="input_exp" onkeyup="print_data_ac(2)">
+                    </div>
+                </div>
+                <div class="output_area">
+                    <div class="output_cover">오류</div>
+                    <div class="gp_box">
+                        <div class="gps">
+                            <div class="gp gp_total"></div>
+                            <div class="gp gp_mine"></div>
+                        </div>
+                        <div class="gp_txt_box">
+                            <div class="gp_txt_total"><b>total</b><br>2679</div>
+                            <div class="gp_txt_mine"><b>mine</b><br>1600</div>
+                        </div>
+                    </div>
+                    <div class="disc_box">
+                        <div class="goal">
+                            <b>목표</b>
+                            <select name="" id="">
+                                <option value="" selected>풀강</option>
+                                <option value="">+1</option>
+                                <option value="">+2</option>
+                            </select>
+                        </div>
+                        <table class="disc_table">
+                            <tr>
+                                <td>
+                                    <div class="disc_title">필요 심볼</div>
+                                    <div class="disc_txt">100개</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="disc_title">필요 메소</div>
+                                    <div class="disc_txt">100,000,000</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="disc_title">일퀘만</div>
+                                    <div class="disc_txt">10일(2023.09.24)</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="disc_title">주간퀘까지</div>
+                                    <div class="disc_txt">5일(2023.09.19)</div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="symbol_box ac4">
+                <div class="input_area">
+                    <div class="name_box">
+                        <div class="img_box">
+                            <img src="./loading.png" alt="" class="symbol_img">
+                        </div>
+                        <div class="name">아르카나</div>
+                    </div>
+                    <div class="input_box">
+                        <div class="lv">level</div>
+                        <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="input_lv" onkeyup="print_data_ac(3)">
+                        <div class="exp">exp</div>
+                        <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="input_exp" onkeyup="print_data_ac(3)">
+                    </div>
+                </div>
+                <div class="output_area">
+                    <div class="output_cover">오류</div>
+                    <div class="gp_box">
+                        <div class="gps">
+                            <div class="gp gp_total"></div>
+                            <div class="gp gp_mine"></div>
+                        </div>
+                        <div class="gp_txt_box">
+                            <div class="gp_txt_total"><b>total</b><br>2679</div>
+                            <div class="gp_txt_mine"><b>mine</b><br>1600</div>
+                        </div>
+                    </div>
+                    <div class="disc_box">
+                        <div class="goal">
+                            <b>목표</b>
+                            <select name="" id="">
+                                <option value="" selected>풀강</option>
+                                <option value="">+1</option>
+                                <option value="">+2</option>
+                            </select>
+                        </div>
+                        <table class="disc_table">
+                            <tr>
+                                <td>
+                                    <div class="disc_title">필요 심볼</div>
+                                    <div class="disc_txt">100개</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="disc_title">필요 메소</div>
+                                    <div class="disc_txt">100,000,000</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="disc_title">일퀘만</div>
+                                    <div class="disc_txt">10일(2023.09.24)</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="disc_title">주간퀘까지</div>
+                                    <div class="disc_txt">5일(2023.09.19)</div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="symbol_box ac5">
+                <div class="input_area">
+                    <div class="name_box">
+                        <div class="img_box">
+                            <img src="./loading.png" alt="" class="symbol_img">
+                        </div>
+                        <div class="name">모라스</div>
+                    </div>
+                    <div class="input_box">
+                        <div class="lv">level</div>
+                        <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="input_lv" onkeyup="print_data_ac(4)">
+                        <div class="exp">exp</div>
+                        <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="input_exp" onkeyup="print_data_ac(4)">
+                    </div>
+                </div>
+                <div class="output_area">
+                    <div class="output_cover">오류</div>
+                    <div class="gp_box">
+                        <div class="gps">
+                            <div class="gp gp_total"></div>
+                            <div class="gp gp_mine"></div>
+                        </div>
+                        <div class="gp_txt_box">
+                            <div class="gp_txt_total"><b>total</b><br>2679</div>
+                            <div class="gp_txt_mine"><b>mine</b><br>1600</div>
+                        </div>
+                    </div>
+                    <div class="disc_box">
+                        <div class="goal">
+                            <b>목표</b>
+                            <select name="" id="">
+                                <option value="" selected>풀강</option>
+                                <option value="">+1</option>
+                                <option value="">+2</option>
+                            </select>
+                        </div>
+                        <table class="disc_table">
+                            <tr>
+                                <td>
+                                    <div class="disc_title">필요 심볼</div>
+                                    <div class="disc_txt">100개</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="disc_title">필요 메소</div>
+                                    <div class="disc_txt">100,000,000</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="disc_title">일퀘만</div>
+                                    <div class="disc_txt">10일(2023.09.24)</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="disc_title">주간퀘까지</div>
+                                    <div class="disc_txt">5일(2023.09.19)</div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="symbol_box ac6">
+                <div class="input_area">
+                    <div class="name_box">
+                        <div class="img_box">
+                            <img src="./loading.png" alt="" class="symbol_img">
+                        </div>
+                        <div class="name">에스페라</div>
+                    </div>
+                    <div class="input_box">
+                        <div class="lv">level</div>
+                        <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="input_lv" onkeyup="print_data_ac(5)">
+                        <div class="exp">exp</div>
+                        <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="input_exp" onkeyup="print_data_ac(5)">
+                    </div>
+                </div>
+                <div class="output_area">
+                    <div class="output_cover">오류</div>
+                    <div class="gp_box">
+                        <div class="gps">
+                            <div class="gp gp_total"></div>
+                            <div class="gp gp_mine"></div>
+                        </div>
+                        <div class="gp_txt_box">
+                            <div class="gp_txt_total"><b>total</b><br>2679</div>
+                            <div class="gp_txt_mine"><b>mine</b><br>1600</div>
+                        </div>
+                    </div>
+                    <div class="disc_box">
+                        <div class="goal">
+                            <b>목표</b>
+                            <select name="" id="">
+                                <option value="" selected>풀강</option>
+                                <option value="">+1</option>
+                                <option value="">+2</option>
+                            </select>
+                        </div>
+                        <table class="disc_table">
+                            <tr>
+                                <td>
+                                    <div class="disc_title">필요 심볼</div>
+                                    <div class="disc_txt">100개</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="disc_title">필요 메소</div>
+                                    <div class="disc_txt">100,000,000</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="disc_title">일퀘만</div>
+                                    <div class="disc_txt">10일(2023.09.24)</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="disc_title">주간퀘까지</div>
+                                    <div class="disc_txt">5일(2023.09.19)</div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex_wrapper wrapper_at">
+            <div class="symbol_box at1">
+                <div class="input_area">
+                    <div class="name_box">
+                        <div class="img_box">
+                            <img src="./loading.png" alt="" class="symbol_img">
+                        </div>
+                        <div class="name">세르니움</div>
+                    </div>
+                    <div class="input_box">
+                        <div class="lv">level</div>
+                        <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="input_lv" onkeyup="print_data_at(0)">
+                        <div class="exp">exp</div>
+                        <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="input_exp" onkeyup="print_data_at(0)">
+                    </div>
+                </div>
+                <div class="output_area">
+                    <div class="output_cover">오류</div>
+                    <div class="gp_box">
+                        <div class="gps">
+                            <div class="gp gp_total"></div>
+                            <div class="gp gp_mine"></div>
+                        </div>
+                        <div class="gp_txt_box">
+                            <div class="gp_txt_total"><b>total</b><br>4565</div>
+                            <div class="gp_txt_mine"><b>mine</b><br>1600</div>
+                        </div>
+                    </div>
+                    <div class="disc_box">
+                        <div class="goal">
+                            <b>목표</b>
+                            <select name="" id="">
+                                <option value="" selected>풀강</option>
+                                <option value="">+1</option>
+                                <option value="">+2</option>
+                            </select>
+                        </div>
+                        <table class="disc_table">
+                            <tr>
+                                <td>
+                                    <div class="disc_title">필요 심볼</div>
+                                    <div class="disc_txt">100개</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="disc_title">필요 메소</div>
+                                    <div class="disc_txt">100,000,000</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="disc_title">일퀘만</div>
+                                    <div class="disc_txt">10일(2023.09.24)</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="disc_title"></div>
+                                    <div class="disc_txt"></div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="symbol_box at2">
+                <div class="input_area">
+                    <div class="name_box">
+                        <div class="img_box">
+                            <img src="./loading.png" alt="" class="symbol_img">
+                        </div>
+                        <div class="name">아르크스</div>
+                    </div>
+                    <div class="input_box">
+                        <div class="lv">level</div>
+                        <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="input_lv" onkeyup="print_data_at(1)">
+                        <div class="exp">exp</div>
+                        <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="input_exp" onkeyup="print_data_at(1)">
+                    </div>
+                </div>
+                <div class="output_area">
+                    <div class="output_cover">오류</div>
+                    <div class="gp_box">
+                        <div class="gps">
+                            <div class="gp gp_total"></div>
+                            <div class="gp gp_mine"></div>
+                        </div>
+                        <div class="gp_txt_box">
+                            <div class="gp_txt_total"><b>total</b><br>4565</div>
+                            <div class="gp_txt_mine"><b>mine</b><br>1600</div>
+                        </div>
+                    </div>
+                    <div class="disc_box">
+                        <div class="goal">
+                            <b>목표</b>
+                            <select name="" id="">
+                                <option value="" selected>풀강</option>
+                                <option value="">+1</option>
+                                <option value="">+2</option>
+                            </select>
+                        </div>
+                        <table class="disc_table">
+                            <tr>
+                                <td>
+                                    <div class="disc_title">필요 심볼</div>
+                                    <div class="disc_txt">100개</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="disc_title">필요 메소</div>
+                                    <div class="disc_txt">100,000,000</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="disc_title">일퀘만</div>
+                                    <div class="disc_txt">10일(2023.09.24)</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="disc_title"></div>
+                                    <div class="disc_txt"></div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="symbol_box at3">
+                <div class="input_area">
+                    <div class="name_box">
+                        <div class="img_box">
+                            <img src="./loading.png" alt="" class="symbol_img">
+                        </div>
+                        <div class="name">오디움</div>
+                    </div>
+                    <div class="input_box">
+                        <div class="lv">level</div>
+                        <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="input_lv" onkeyup="print_data_at(2)">
+                        <div class="exp">exp</div>
+                        <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="input_exp" onkeyup="print_data_at(2)">
+                    </div>
+                </div>
+                <div class="output_area">
+                    <div class="output_cover">오류</div>
+                    <div class="gp_box">
+                        <div class="gps">
+                            <div class="gp gp_total"></div>
+                            <div class="gp gp_mine"></div>
+                        </div>
+                        <div class="gp_txt_box">
+                            <div class="gp_txt_total"><b>total</b><br>4565</div>
+                            <div class="gp_txt_mine"><b>mine</b><br>1600</div>
+                        </div>
+                    </div>
+                    <div class="disc_box">
+                        <div class="goal">
+                            <b>목표</b>
+                            <select name="" id="">
+                                <option value="" selected>풀강</option>
+                                <option value="">+1</option>
+                                <option value="">+2</option>
+                            </select>
+                        </div>
+                        <table class="disc_table">
+                            <tr>
+                                <td>
+                                    <div class="disc_title">필요 심볼</div>
+                                    <div class="disc_txt">100개</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="disc_title">필요 메소</div>
+                                    <div class="disc_txt">100,000,000</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="disc_title">일퀘만</div>
+                                    <div class="disc_txt">10일(2023.09.24)</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="disc_title"></div>
+                                    <div class="disc_txt"></div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="symbol_box at4">
+                <div class="input_area">
+                    <div class="name_box">
+                        <div class="img_box">
+                            <img src="./loading.png" alt="" class="symbol_img">
+                        </div>
+                        <div class="name">도원경</div>
+                    </div>
+                    <div class="input_box">
+                        <div class="lv">level</div>
+                        <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="input_lv" onkeyup="print_data_at(3)">
+                        <div class="exp">exp</div>
+                        <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="input_exp" onkeyup="print_data_at(3)">
+                    </div>
+                </div>
+                <div class="output_area">
+                    <div class="output_cover">오류</div>
+                    <div class="gp_box">
+                        <div class="gps">
+                            <div class="gp gp_total"></div>
+                            <div class="gp gp_mine"></div>
+                        </div>
+                        <div class="gp_txt_box">
+                            <div class="gp_txt_total"><b>total</b><br>4565</div>
+                            <div class="gp_txt_mine"><b>mine</b><br>1600</div>
+                        </div>
+                    </div>
+                    <div class="disc_box">
+                        <div class="goal">
+                            <b>목표</b>
+                            <select name="" id="">
+                                <option value="" selected>풀강</option>
+                                <option value="">+1</option>
+                                <option value="">+2</option>
+                            </select>
+                        </div>
+                        <table class="disc_table">
+                            <tr>
+                                <td>
+                                    <div class="disc_title">필요 심볼</div>
+                                    <div class="disc_txt">100개</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="disc_title">필요 메소</div>
+                                    <div class="disc_txt">100,000,000</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="disc_title">일퀘만</div>
+                                    <div class="disc_txt">10일(2023.09.24)</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="disc_title"></div>
+                                    <div class="disc_txt"></div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="symbol_box at5">
+                <div class="input_area">
+                    <div class="name_box">
+                        <div class="img_box">
+                            <img src="./loading.png" alt="" class="symbol_img">
+                        </div>
+                        <div class="name">아르테리아</div>
+                    </div>
+                    <div class="input_box">
+                        <div class="lv">level</div>
+                        <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="input_lv" onkeyup="print_data_at(4)">
+                        <div class="exp">exp</div>
+                        <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="input_exp" onkeyup="print_data_at(4)">
+                    </div>
+                </div>
+                <div class="output_area">
+                    <div class="output_cover">오류</div>
+                    <div class="gp_box">
+                        <div class="gps">
+                            <div class="gp gp_total"></div>
+                            <div class="gp gp_mine"></div>
+                        </div>
+                        <div class="gp_txt_box">
+                            <div class="gp_txt_total"><b>total</b><br>4565</div>
+                            <div class="gp_txt_mine"><b>mine</b><br>1600</div>
+                        </div>
+                    </div>
+                    <div class="disc_box">
+                        <div class="goal">
+                            <b>목표</b>
+                            <select name="" id="">
+                                <option value="" selected>풀강</option>
+                                <option value="">+1</option>
+                                <option value="">+2</option>
+                            </select>
+                        </div>
+                        <table class="disc_table">
+                            <tr>
+                                <td>
+                                    <div class="disc_title">필요 심볼</div>
+                                    <div class="disc_txt">100개</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="disc_title">필요 메소</div>
+                                    <div class="disc_txt">100,000,000</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="disc_title">일퀘만</div>
+                                    <div class="disc_txt">10일(2023.09.24)</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="disc_title"></div>
+                                    <div class="disc_txt"></div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="symbol_box at6">
+                <div class="input_area">
+                    <div class="name_box">
+                        <div class="img_box">
+                            <img src="./loading.png" alt="" class="symbol_img">
+                        </div>
+                        <div class="name">카르시온</div>
+                    </div>
+                    <div class="input_box">
+                        <div class="lv">level</div>
+                        <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="input_lv" onkeyup="print_data_at(5)">
+                        <div class="exp">exp</div>
+                        <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="input_exp" onkeyup="print_data_at(5)">
+                    </div>
+                </div>
+                <div class="output_area">
+                    <div class="output_cover">오류</div>
+                    <div class="gp_box">
+                        <div class="gps">
+                            <div class="gp gp_total"></div>
+                            <div class="gp gp_mine"></div>
+                        </div>
+                        <div class="gp_txt_box">
+                            <div class="gp_txt_total"><b>total</b><br>4565</div>
+                            <div class="gp_txt_mine"><b>mine</b><br>1600</div>
+                        </div>
+                    </div>
+                    <div class="disc_box">
+                        <div class="goal">
+                            <b>목표</b>
+                            <select name="" id="">
+                                <option value="" selected>풀강</option>
+                                <option value="">+1</option>
+                                <option value="">+2</option>
+                            </select>
+                        </div>
+                        <table class="disc_table">
+                            <tr>
+                                <td>
+                                    <div class="disc_title">필요 심볼</div>
+                                    <div class="disc_txt">100개</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="disc_title">필요 메소</div>
+                                    <div class="disc_txt">100,000,000</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="disc_title">일퀘만</div>
+                                    <div class="disc_txt">10일(2023.09.24)</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="disc_title"></div>
+                                    <div class="disc_txt"></div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        
+    let flag = new Array(6);
+    </script>
+    <script src="./common.js"></script>
+    <!-- <script src="./weekly.js"></script> -->
+</body>
+</html>

@@ -1,0 +1,230 @@
+body {
+    margin: 0;
+}
+.content_area {
+    width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+}
+.title {
+    padding: 40px 0;
+    font-size: 20px;
+    position: relative;
+}
+.acat {
+    width: 100px;
+    height: 40px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+}
+.weekly_box {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.weekly_check_title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+.weekly_check_box {
+    width: 210px;
+    height: 60px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.weekly {
+    width: 70px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+.weekly_img {
+    width: 30px;
+    height: 30px;
+    background: url(./loading.png) center / cover;
+}
+.weekly_check, #weekly_check_all {
+    width: 10px;
+    height: 10px;
+    border: 2px solid;
+    /* box-sizing: border-box; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+}
+.check_leg, #check_leg_all {
+    width: 8px;
+    height: 8px;
+    background: none;
+}
+.save_date {
+    width: 300px;
+    height: 60px;
+    font-size: 18px;
+    position: absolute;
+    bottom: 0;
+    right: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.save {
+    width: 100px;
+    height: 60px;
+    font-size: 18px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.save:hover {
+    background: #ddd;
+    cursor: pointer;
+    font-weight: 600;
+}
+.flex_wrapper {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+}
+.wrapper_at {
+    display: none;
+}
+.symbol_box {
+    width: calc((100% - 10px) / 6);
+}
+.ac1 .input_area, .ac1 .output_area {background: #ddd;}
+.ac2 .input_area, .ac2 .output_area {background: #ddd;}
+.ac3 .input_area, .ac3 .output_area {background: #ddd;}
+.ac4 .input_area, .ac4 .output_area {background: #ddd;}
+.ac5 .input_area, .ac5 .output_area {background: #ddd;}
+.ac6 .input_area, .ac6 .output_area {background: #ddd;}
+.at1 .input_area, .at1 .output_area {background: #ddd;}
+.at2 .input_area, .at2 .output_area {background: #ddd;}
+.at3 .input_area, .at3 .output_area {background: #ddd;}
+.at4 .input_area, .at4 .output_area {background: #ddd;}
+.at5 .input_area, .at5 .output_area {background: #ddd;}
+.at6 .input_area, .at6 .output_area {background: #ddd;}
+
+.input_area {
+    box-sizing: border-box;
+    margin-bottom: 2px;
+    padding: 20px 5px;
+}
+.name {
+    padding-bottom: 10px;
+    font-size: 18px;
+    font-weight: 600;
+}
+.img_box {
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.symbol_img {
+    width: 50%;
+}
+.lv, .exp {
+    padding-top: 5px;
+}
+.input_lv, .input_exp {
+    font-size: 20px;
+    width: 30%;
+    border: 0;
+}
+
+.output_area {
+    height: 455px;
+    position: relative;
+}
+.output_cover {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 9;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.gp_box {
+    height: 50%;
+    display: flex;
+}
+.gps {
+    width: 70%;
+    position: relative;
+}
+.gp {
+    width: 20%;
+    position: absolute;
+    bottom: 0;
+    left: 40%;
+
+}
+.gp_total {
+    height: 90%;
+    background: rgba(0, 0, 0, 0.2);
+}
+.gp_mine {
+    height: 50%;
+    background: rgba(0, 50, 255, 0.4)
+}
+.gp_txt_box {
+    width: 40%;
+    font-size: 13px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+.gp_txt_mine {
+    color: #00f;
+}
+.disc_box {
+    height: 50%;
+    border-top: 2px solid #fff;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.goal {
+    font-size: 13px;
+    text-align: right;
+    padding-bottom: 10px;
+}
+.disc_table {
+    width: 100%;
+    font-size: 13px;
+}
+td {
+    text-align: left;
+    padding: 3px;
+}
+.disc_txt {
+    color: #00f;
+    padding-left: 10px;
+}
+/* .disc_txt::before {
+    content: "┖ ";
+    font-size: 10px;
+} */
